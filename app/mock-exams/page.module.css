@@ -1,0 +1,313 @@
+.mockExams {
+  padding: 2rem 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.bigNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0.5rem 0;
+}
+
+.trend {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.subject {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.subjectScore {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nextDate {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0.5rem 0;
+}
+
+.nextName {
+  color: var(--text-secondary);
+}
+
+.sectionTitle {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.examList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.examHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.examHeader h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.examDate {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.statusBadge.completed {
+  background: rgba(var(--accent), 0.2);
+  color: var(--accent);
+}
+
+.statusBadge.scheduled {
+  background: rgba(var(--secondary), 0.2);
+  color: var(--secondary);
+}
+
+.overallScore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.scoreValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.subjectScores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+.scoreItem span:first-child {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.scoreItem span:last-child {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.examActions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.editBtn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .mockExams {
+    padding: 1.5rem 0;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .statsSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .bigNumber {
+    font-size: 2.5rem;
+  }
+  
+  .subjectScore {
+    font-size: 1.75rem;
+  }
+  
+  .nextDate {
+    font-size: 1.75rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .examList {
+    gap: 1rem;
+  }
+  
+  .examHeader h3 {
+    font-size: 1.25rem;
+  }
+  
+  .overallScore {
+    padding: 0.75rem;
+  }
+  
+  .scoreValue {
+    font-size: 1.75rem;
+  }
+  
+  .subjectScores {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .scoreItem {
+    padding: 0.5rem;
+  }
+  
+  .examActions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .examActions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mockExams {
+    padding: 1rem 0;
+  }
+  
+  .header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .statsSection {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .bigNumber {
+    font-size: 2rem;
+  }
+  
+  .subject {
+    font-size: 1.125rem;
+  }
+  
+  .subjectScore {
+    font-size: 1.5rem;
+  }
+  
+  .nextDate {
+    font-size: 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.375rem;
+  }
+  
+  .examList {
+    gap: 0.75rem;
+  }
+  
+  .examHeader h3 {
+    font-size: 1.125rem;
+  }
+  
+  .examDate {
+    font-size: 0.813rem;
+  }
+  
+  .overallScore {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .scoreValue {
+    font-size: 1.5rem;
+  }
+  
+  .subjectScores {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .scoreItem {
+    padding: 0.438rem;
+  }
+  
+  .scoreItem span:first-child {
+    font-size: 0.75rem;
+  }
+  
+  .scoreItem span:last-child {
+    font-size: 1rem;
+  }
+}

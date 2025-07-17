@@ -1,95 +1,92 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import styles from './page.module.css';
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <section className={styles.hero}>
+        <div className="container">
+          <h1 className={styles.title}>
+            <span className="gradient-text">受験プランナー</span>で
+            <br />
+            夢の大学合格へ
+          </h1>
+          <p className={styles.subtitle}>
+            受験校管理、模試スケジュール、費用計算まで
+            <br />
+            あなたの受験を全面サポート
+          </p>
+          <div className={styles.heroButtons}>
+            <Link href="/login" className="btn btn-primary">
+              ログインする
+            </Link>
+            <Link href="#features" className="btn btn-outline">
+              機能を見る
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <section id="features" className={styles.features}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>主な機能</h2>
+          <div className={styles.featureGrid}>
+            <div className="card">
+              <div className={styles.featureIcon}>📊</div>
+              <h3>ダッシュボード</h3>
+              <p>受験の進捗を一目で確認。模試の成績推移や志望校の合格可能性をグラフで表示</p>
+            </div>
+            <div className="card">
+              <div className={styles.featureIcon}>🏫</div>
+              <h3>受験校管理</h3>
+              <p>志望校の情報を一元管理。偏差値、試験日程、必要書類をまとめて管理</p>
+            </div>
+            <div className="card">
+              <div className={styles.featureIcon}>📝</div>
+              <h3>模試管理</h3>
+              <p>模試のスケジュールと成績を記録。苦手分野の分析で効率的な学習をサポート</p>
+            </div>
+            <div className="card">
+              <div className={styles.featureIcon}>💰</div>
+              <h3>費用管理</h3>
+              <p>受験料、交通費、宿泊費など受験にかかる費用を計算・管理</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.stats}>
+        <div className="container">
+          <div className={styles.statsGrid}>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>15,000+</h3>
+              <p className={styles.statLabel}>利用者数</p>
+            </div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>98%</h3>
+              <p className={styles.statLabel}>満足度</p>
+            </div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>500+</h3>
+              <p className={styles.statLabel}>対応大学</p>
+            </div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>24/7</h3>
+              <p className={styles.statLabel}>サポート</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.cta}>
+        <div className="container">
+          <h2>今すぐ受験プランナーを始めよう</h2>
+          <p>無料で全ての機能をお試しいただけます</p>
+          <Link href="/dashboard" className="btn btn-secondary">
+            無料で始める
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

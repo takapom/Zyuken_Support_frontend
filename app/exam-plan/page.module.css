@@ -1,0 +1,268 @@
+.examPlan {
+  padding: 2rem 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.filterSection {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filterBtn {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--border);
+  background: transparent;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+}
+
+.filterBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filterBtn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.schoolList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.schoolHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.schoolHeader h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.faculty {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.levelBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+
+.levelBadge.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.schoolInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.passRate {
+  font-weight: 600;
+}
+
+.passRate.rateA {
+  color: var(--accent);
+}
+
+.passRate.rateB {
+  color: #f59e0b;
+}
+
+.passRate.rateC {
+  color: #ef4444;
+}
+
+.status {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.schoolActions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.editBtn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .examPlan {
+    padding: 1.5rem 0;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .filterSection {
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .filterBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    flex: 1;
+    min-width: calc(50% - 0.1875rem);
+  }
+  
+  .schoolList {
+    gap: 1rem;
+  }
+  
+  .schoolHeader h3 {
+    font-size: 1.25rem;
+  }
+  
+  .levelBadge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .schoolInfo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .label {
+    font-size: 0.75rem;
+  }
+  
+  .value {
+    font-size: 0.875rem;
+  }
+  
+  .schoolActions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .schoolActions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .examPlan {
+    padding: 1rem 0;
+  }
+  
+  .header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filterSection {
+    margin-bottom: 1rem;
+  }
+  
+  .filterBtn {
+    font-size: 0.813rem;
+    padding: 0.438rem 0.75rem;
+  }
+  
+  .schoolList {
+    gap: 0.75rem;
+  }
+  
+  .schoolHeader {
+    margin-bottom: 1rem;
+  }
+  
+  .schoolHeader h3 {
+    font-size: 1.125rem;
+  }
+  
+  .faculty {
+    font-size: 0.813rem;
+  }
+  
+  .schoolInfo {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .infoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .infoItem:last-child {
+    border-bottom: none;
+  }
+  
+  .schoolActions {
+    padding-top: 0.75rem;
+  }
+}
