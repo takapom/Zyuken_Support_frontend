@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import BottomNav from "@/components/BottomNav";
+import { AuthProvider } from "@/contexts/AuthContext";
+import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
   title: "受験プランナー - 高校生のための受験管理アプリ",
@@ -16,11 +16,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <Navigation />
-        <main style={{ minHeight: 'calc(100vh - 64px)' }}>
-          {children}
-        </main>
-        <BottomNav />
+        <AuthProvider>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </AuthProvider>
       </body>
     </html>
   );

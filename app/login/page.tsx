@@ -2,34 +2,25 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
+import { useLogin } from '@/hooks/useLogin';
 
+//最終的にlogin()に渡したい
 export default function LoginPage() {
-  const router = useRouter();
+  const { login, error, isLoading } = useLogin()
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError('');
 
     try {
-      // TODO: ここに実際のログイン処理を実装
-      console.log('Login attempt:', formData);
-      
-      // 仮のログイン成功処理
-      setTimeout(() => {
-        router.push('/dashboard');
-      }, 1000);
-    } catch {
-      setError('ログインに失敗しました。メールアドレスとパスワードを確認してください。');
-      setIsLoading(false);
+      await login(formData);
+    } catch (err) {
+      // エラーはuseLoginフック内で処理されるため、ここでは何もしない
+      console.error('Login error:', err);
     }
   };
 

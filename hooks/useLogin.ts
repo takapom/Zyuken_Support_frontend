@@ -34,19 +34,20 @@ export function useLogin(): UseLoginReturn {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'ログインに失敗しました');
+        setError('パスワードまたはメールアドレスが違います');
+        return;
       }
 
       // const result = await response.json();
       // TODO: トークンの保存処理を追加 (resultからトークンを取得)
       
+      // 仮のトークンをlocalStorageに保存（実際はAPIレスポンスから取得）
+      localStorage.setItem('authToken', 'dummy-token');
+      
       // ログイン成功後、ダッシュボードへリダイレクト
       router.push('/dashboard');
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'ログインに失敗しました。もう一度お試しください。';
-      setError(errorMessage);
-      throw err;
+    } catch {
+      setError('パスワードまたはメールアドレスが違います');
     } finally {
       setIsLoading(false);
     }
