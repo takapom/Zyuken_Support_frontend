@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useSignup } from '@/hooks/useSignup';
+import { useSignup } from '@/hooks/user/useSignup';
 import styles from '@/app/signup/page.module.css';
 
 export default function SignupForm() {

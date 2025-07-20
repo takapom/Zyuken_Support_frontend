@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { useLogin } from '@/hooks/useLogin';
+import { useLogin } from '@/hooks/user/useLogin';
 
 //最終的にlogin()に渡したい
 export default function LoginPage() {

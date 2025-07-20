@@ -1,65 +1,26 @@
+'use client';
+
 import styles from './page.module.css';
+import Link from 'next/link';
+import { useEffect } from 'react';
+import { useGetSchools } from '@/hooks/getdata/useGetSchool';
 
 export default function ExamPlanPage() {
-  const schools = [
-    {
-      id: 1,
-      name: '東京大学',
-      faculty: '理科一類',
-      level: '第一志望',
-      examDate: '2024/02/25',
-      deviation: 72,
-      passRate: 'C',
-      status: '出願予定'
-    },
-    {
-      id: 2,
-      name: '早稲田大学',
-      faculty: '基幹理工学部',
-      level: '併願',
-      examDate: '2024/02/15',
-      deviation: 68,
-      passRate: 'B',
-      status: '出願済'
-    },
-    {
-      id: 3,
-      name: '慶應義塾大学',
-      faculty: '理工学部',
-      level: '併願',
-      examDate: '2024/02/12',
-      deviation: 68,
-      passRate: 'B',
-      status: '出願済'
-    },
-    {
-      id: 4,
-      name: '東京工業大学',
-      faculty: '工学院',
-      level: '併願',
-      examDate: '2024/02/26',
-      deviation: 65,
-      passRate: 'A',
-      status: '出願予定'
-    },
-    {
-      id: 5,
-      name: '上智大学',
-      faculty: '理工学部',
-      level: '滑り止め',
-      examDate: '2024/02/05',
-      deviation: 60,
-      passRate: 'A',
-      status: '出願済'
-    }
-  ];
+  const { schools, error, loading, fetchSchools } = useGetSchools();
+
+  useEffect(() => {
+    fetchSchools();
+  }, [fetchSchools]);
+
 
   return (
     <div className="container">
       <div className={styles.examPlan}>
         <div className={styles.header}>
           <h1>受験校管理</h1>
+          <Link href="/add-school">
           <button className="btn btn-primary">新しい学校を追加</button>
+          </Link>
         </div>
 
         <div className={styles.filterSection}>
@@ -69,8 +30,26 @@ export default function ExamPlanPage() {
           <button className={styles.filterBtn}>滑り止め</button>
         </div>
 
+        {loading && (
+          <div className={styles.loading}>
+            <p>学校情報を読み込んでいます...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className={styles.error}>
+            <p>{error}</p>
+          </div>
+        )}
+
+        {!loading && !error && schools && schools.length === 0 && (
+          <div className={styles.empty}>
+            <p>登録された学校がありません。</p>
+          </div>
+        )}
+
         <div className={styles.schoolList}>
-          {schools.map((school) => (
+          {schools && Array.isArray(schools) && schools.map((school) => (
             <div key={school.id} className="card">
               <div className={styles.schoolHeader}>
                 <div>
@@ -85,7 +64,7 @@ export default function ExamPlanPage() {
               <div className={styles.schoolInfo}>
                 <div className={styles.infoItem}>
                   <span className={styles.label}>試験日</span>
-                  <span className={styles.value}>{school.examDate}</span>
+                  <span className={styles.value}>{school.exam_date}</span>
                 </div>
                 <div className={styles.infoItem}>
                   <span className={styles.label}>偏差値</span>
@@ -93,13 +72,13 @@ export default function ExamPlanPage() {
                 </div>
                 <div className={styles.infoItem}>
                   <span className={styles.label}>合格可能性</span>
-                  <span className={`${styles.passRate} ${styles[`rate${school.passRate}`]}`}>
-                    {school.passRate}判定
+                  <span className={`${styles.passRate} ${styles[`rate${school.pass_rate}`]}`}>
+                    {school.pass_rate}判定
                   </span>
                 </div>
                 <div className={styles.infoItem}>
                   <span className={styles.label}>状態</span>
-                  <span className={styles.status}>{school.status}</span>
+                  <span className={styles.status}>{school.application_status}</span>
                 </div>
               </div>
               

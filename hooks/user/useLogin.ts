@@ -38,11 +38,14 @@ export function useLogin(): UseLoginReturn {
         return;
       }
 
-      // const result = await response.json();
-      // TODO: トークンの保存処理を追加 (resultからトークンを取得)
+      const result = await response.json();
       
-      // 仮のトークンをlocalStorageに保存（実際はAPIレスポンスから取得）
-      localStorage.setItem('authToken', 'dummy-token');
+      // APIレスポンスから実際のトークンを取得して保存
+      if (result.token) {
+        localStorage.setItem('authToken', result.token);
+      } else {
+        throw new Error('トークンが取得できませんでした');
+      }
       
       // ログイン成功後、ダッシュボードへリダイレクト
       router.push('/dashboard');
